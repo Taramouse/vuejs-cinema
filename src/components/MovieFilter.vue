@@ -1,12 +1,16 @@
 <template>
 <div id="movie-filter">
   <h2>Filter Results</h2>
-  <check-filter></check-filter>
+  <div class="filter-group">
+    <check-filter v-for="genre in genres" v-bind:key="genre" v-bind:title="genre"></check-filter>
+  </div>
 </div>
 </template>
 
 <script>
 import CheckFilter from './CheckFilter.vue'
+import Genres from '../util/genres'
+
 export default {
  name: 'movie-filter',
  components: {
@@ -14,7 +18,7 @@ export default {
  },
  data() {
    return {
-     // msg: 'I am movie-filter'
+     genres: Genres
    }
  }
 }
