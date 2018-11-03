@@ -1,9 +1,8 @@
 <template>
 <div id="movie-list">
   <movie-item
-    class="movie"
     v-for="movie in filteredMovies"
-    v-bind:movie="movie"
+    v-bind:movie="movie.movie"
     v-bind:key="movie.id"
   >
   </movie-item>
