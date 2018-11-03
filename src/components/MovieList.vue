@@ -1,6 +1,8 @@
 <template>
 <div id="movie-list">
-  {{msg}}
+  <div class="movie" v-for="movie in movies" v-bind:key="movie.title">
+    {{movie.title}}
+  </div>
 </div>
 </template>
 
@@ -9,7 +11,11 @@ export default {
  name: 'movie-list',
  data() {
    return {
-     msg: 'I am movie-list'
+     movies: [
+       { title: 'The Avengers'},
+       { title: 'Captain America'},
+       { title: 'Iron Man'}
+     ]
    }
  }
 }
