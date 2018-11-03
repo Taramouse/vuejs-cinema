@@ -1,13 +1,18 @@
 <template>
 <div id="movie-list">
-  <div class="movie" v-for="movie in filteredMovies" v-bind:key="movie.movie.Title">
-    {{movie.movie.Title}}
-  </div>
+  <movie-item
+    class="movie"
+    v-for="movie in filteredMovies"
+    v-bind:movie="movie"
+    v-bind:key="movie.id"
+  >
+  </movie-item>
 </div>
 </template>
 
 <script>
 import genres from '../util/genres'
+import MovieItem from './MovieItem.vue'
 
 export default {
  name: 'movie-list',
@@ -25,6 +30,9 @@ export default {
    filteredMovies() {
      return this.movies.filter(this.moviePassesGenreFilter)
    }
+ },
+ components: {
+   MovieItem
  }
 }
 </script>
