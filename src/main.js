@@ -8,5 +8,10 @@ new Vue({
   components: {
     MovieList,
     MovieFilter
+  },
+  methods: {
+    checkFilter(category, title, checked) {
+      console.log(category, title, checked)
+    }
   }
 })

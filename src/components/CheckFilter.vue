@@ -1,5 +1,5 @@
 <template>
-<div v-bind:class="{'check-filter': true, active: checked}" v-on:click="checked = !checked">
+<div v-bind:class="{'check-filter': true, active: checked}" v-on:click="checkFilter">
   <span class="checkbox"></span>
   <span class="check-filter-title">{{title}}</span>
 </div>
@@ -12,6 +12,12 @@ export default {
   data() {
     return {
       checked: false
+    }
+  },
+  methods: {
+    checkFilter() {
+      this.checked = !this.checked
+      this.$emit('check-filter', 'genre', this.title, this.checked)
     }
   }
 }
