@@ -14,8 +14,8 @@
 </template>
 
 <script>
+import genres from '../util/genres'
 import CheckFilter from './CheckFilter.vue'
-import Genres from '../util/genres'
 
 export default {
  name: 'movie-filter',
@@ -24,7 +24,7 @@ export default {
  },
  data() {
    return {
-     genres: Genres
+     genres
    }
  },
  methods: {
