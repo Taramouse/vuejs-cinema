@@ -7,14 +7,18 @@
 </template>
 
 <script>
+import genres from '../util/genres'
+
 export default {
  name: 'movie-list',
+ props: ['genre', 'time'],
  data() {
    return {
+     genres,
      movies: [
-       { title: 'The Avengers'},
-       { title: 'Captain America'},
-       { title: 'Iron Man'}
+       { title: 'The Avengers', genre: genres.FANTASY },
+       { title: 'Pulp Fiction', genre: genres.CRIME },
+       { title: 'Austin Powers', genre: genres.COMEDY }
      ]
    }
  }
