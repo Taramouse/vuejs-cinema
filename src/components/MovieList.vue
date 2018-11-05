@@ -4,6 +4,7 @@
     <movie-item
         v-for="movie in filteredMovies"
         v-bind:movie="movie.movie"
+        v-bind:sessions="movie.sessions"
         v-bind:key="movie.id"
       >
       </movie-item>
