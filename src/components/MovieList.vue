@@ -5,6 +5,7 @@
         v-for="movie in filteredMovies"
         v-bind:movie="movie.movie"
         v-bind:sessions="movie.sessions"
+        v-bind:day="day"
         v-bind:key="movie.id"
       >
       </movie-item>
@@ -22,7 +23,7 @@ import MovieItem from './MovieItem.vue'
 
 export default {
  name: 'movie-list',
- props: ['genre', 'time', 'movies'],
+ props: ['genre', 'time', 'movies', 'day'],
  methods: {
    moviePassesGenreFilter(movie) {
      if(!this.genre.length) {
