@@ -11,8 +11,15 @@ Vue.use(VueResource)
 moment.tz.setDefault('UTC')
 // Moment is not a vue module so cannot do Vue.use()
 // To make moment globally accessible to all components.
-Object.defineProperty(Vue.prototype, '$moment', {get() {
+Object.defineProperty(Vue.prototype, '$moment', { get() {
     return this.$root.moment
+  }
+})
+
+// Special Vue instance to share events between components.
+const bus = new Vue()
+Object.defineProperty(Vue.prototype, '$bus', { get() {
+    return this.$root.bus
   }
 })
 
@@ -27,7 +34,8 @@ new Vue({
     time: [],
     movies: [],
     moment,
-    day: moment()
+    day: moment(),
+    bus
   },
   methods: {
     checkFilter(category, title, checked) {
