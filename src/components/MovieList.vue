@@ -68,6 +68,7 @@ export default {
      // Join each time together seperated by a comma and a space
      let times = this.time.join(', ')
      let genres = this.genre.join(', ')
+     // Only add a comma and a space betweeen times and genres if they are both present
      return `No Results for ${times}${times.length && genres.length ? ', ' : ''}${genres}.`
    }
  },
