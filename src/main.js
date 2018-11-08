@@ -54,5 +54,6 @@ new Vue({
       .then(response => {
         this.movies = response.data
       })
+      this.$bus.$on('check-filter', this.checkFilter)
   }
 })
