@@ -1,11 +1,23 @@
 <template>
- <div>
-   Detail Page
+ <div id="detail" v-if="movie">
+   <movie-item v-bind:movie="movie.movie" v-bind:sessions="[]"></movie-item>
  </div>
 </template>
 
 <script>
+import MovieItem from './MovieItem.vue'
+
 export default {
-  name: 'detail',
+  props: ['movies'],
+  computed: {
+    movie() {
+      let movie = this.movies.find(movie => movie.id === this.$route.params.id)
+      // Check movie is defined
+      return movie ? movie : null
+    }
+  },
+  components: {
+    MovieItem
+  }
 }
 </script>
