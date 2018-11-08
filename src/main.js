@@ -4,6 +4,7 @@ import MovieList from './components/MovieList.vue'
 import MovieFilter from './components/MovieFilter.vue'
 import VueResource from 'vue-resource'
 import moment from 'moment-timezone'
+import {checkFilter} from './util/bus'
 
 Vue.use(VueResource)
 
@@ -37,23 +38,11 @@ new Vue({
     day: moment(),
     bus
   },
-  methods: {
-    checkFilter(category, title, checked) {
-      if(checked) {
-        this[category].push(title)
-      } else {
-        let index = this[category].indexOf(title)
-        if(index > -1) {
-          this[category].splice(index, 1)
-        }
-      }
-    }
-  },
   created() {
     this.$http.get('/api')
       .then(response => {
         this.movies = response.data
       })
-      this.$bus.$on('check-filter', this.checkFilter)
+      this.$bus.$on('check-filter', checkFilter.bind(this))
   }
 })
