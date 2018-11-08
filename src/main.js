@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import './style.scss'
-import MovieList from './components/MovieList.vue'
-import MovieFilter from './components/MovieFilter.vue'
+import Overview from './components/Overview.vue'
 import VueResource from 'vue-resource'
 import moment from 'moment-timezone'
 import {checkFilter} from './util/bus'
@@ -27,8 +26,7 @@ Object.defineProperty(Vue.prototype, '$bus', { get() {
 new Vue({
   el: '#app',
   components: {
-    MovieList,
-    MovieFilter
+    Overview
   },
   data: {
     genre: [],
