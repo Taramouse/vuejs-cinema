@@ -6,6 +6,7 @@
         v-bind:movie="movie.movie"
         v-bind:sessions="movie.sessions"
         v-bind:day="day"
+        v-bind:time="time"
         v-bind:key="movie.id"
       >
       </movie-item>
