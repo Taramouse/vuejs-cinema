@@ -1,11 +1,15 @@
 import Vue from 'vue'
-import './style.scss'
-import Overview from './components/Overview.vue'
+import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import './style.scss'
 import moment from 'moment-timezone'
 import {checkFilter} from './util/bus'
+import routes from './util/routes'
 
+Vue.use(VueRouter)
 Vue.use(VueResource)
+
+const router = new VueRouter({ routes })
 
 // Set default timezone with moment
 moment.tz.setDefault('UTC')
@@ -25,9 +29,7 @@ Object.defineProperty(Vue.prototype, '$bus', { get() {
 
 new Vue({
   el: '#app',
-  components: {
-    Overview
-  },
+  router,
   data: {
     genre: [],
     time: [],
