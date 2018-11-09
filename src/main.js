@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import './style.scss'
 import moment from 'moment-timezone'
-import {checkFilter} from './util/bus'
+import {checkFilter, setDay} from './util/bus'
 import routes from './util/routes'
 
 Vue.use(VueRouter)
@@ -44,5 +44,6 @@ new Vue({
         this.movies = response.data
       })
       this.$bus.$on('check-filter', checkFilter.bind(this))
+      this.$bus.$on('select-day', setDay.bind(this))
   }
 })
