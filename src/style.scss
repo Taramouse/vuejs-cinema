@@ -97,7 +97,7 @@ body, html {
 
           &.active {
             color: $bright-red;
-            text-decoration: underline;
+            text-decoration: none;
             background-color: darken($charcoal, 5%);
           }
 
