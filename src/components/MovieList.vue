@@ -8,7 +8,8 @@
       >
         <div class="movie-sessions">
           <div
-            class="session-time-wrapper"
+            class="session-time-wrapper tooltip-wrapper"
+            v-tooltip="{seats: session.seats}"
             v-for="session in filteredSessions(movie.sessions)"
             v-bind:key="session.id"
           >
